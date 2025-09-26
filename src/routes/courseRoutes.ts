@@ -14,7 +14,7 @@ courseRouter.get("/courses/:courseid", (req: Request, res: Response) => {
         const courseresult = zCourseId.safeParse(courseid)
             if (!courseresult.success) {
               return res.status(400).json({
-                
+                success: false,
                 message: "Validation failed",
                 errors: courseresult.error.issues[0]?.message,
               });
